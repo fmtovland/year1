@@ -4,12 +4,8 @@ The second time I had to make software with a tight deadline. I had one hour to 
 at the end the array should be the following
 
 #
-25152
-#
-50105
-#
-11111
-#
-50105
-#
-25152
+25152<br>
+50105<br>
+11111<br>
+50105<br>
+25152<br>
