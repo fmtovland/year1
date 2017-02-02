@@ -26,3 +26,25 @@ int arit_series(int a, int d, int n)
 	return total;
 
 }//end arit_series
+
+
+//find the average of the contents of an array
+//santax: mean_average(address_of_array,number_of_elements)
+
+float mean_average(int *numbers, int size)
+{
+	float total=0;
+	int i;
+	float result;
+
+	for(i=0; i<size; i++)
+	{
+		total = total + *(numbers+i);
+
+	}//end for
+
+	result = total/size;
+
+	return result;
+
+}//end average
