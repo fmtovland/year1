@@ -102,43 +102,15 @@ int mode_average(int *numbers, int size)
 float median_average(int *numbers, int size)
 {
 	int ordered[size];	//the contents of numbers will be copied into this array from smallest to largest
-	int bookmark=0;		//remembers the next element of the array that will be written to
-	int biggest;		//the largest element of the array
-	int smallest;		//the smallest element of the array
-	int subject;		//the value currently being counted and sorted
-	int i;			//for loops
 	float median;		//the result
 	int half;		//the medians location in the ordered array
-	
 
-	biggest=biggest_num(numbers,size);
-	smallest=smallest_num(numbers,size);
-
-	//put the array in order
-
-	subject=smallest;
-	do
-	{
-		for(i=0; i<size; i++)
-		{
-			if(subject == *(numbers+i))
-			{
-				ordered[bookmark] = *(numbers+i);
-				bookmark++;
-
-			}//end if
-
-		}//end for
-
-		subject++;
-
-	}
-	while(subject <= biggest);
+	order(numbers,ordered,size);	//sort the numbers in assending order and write to array ordered
 
 	if(size%2 == 1)
 	{
 		half=((size-1)/2)+1;
-		median=(float)ordered[half-1];
+		median=(float)ordered[half-1];	//if the number of elements in the array is odd, this picks the middle value
 	}//end if
 
 	else
@@ -175,6 +147,7 @@ int biggest_num(int *numbers, int size)
 
 }//end biggest_num
 
+//find the lowest value in an array
 int smallest_num(int *numbers, int size)
 {
 	int i;
@@ -192,4 +165,40 @@ int smallest_num(int *numbers, int size)
 
 	return smallest;
 
-}//end biggest_num
+}//end smallest_num
+
+//put all the elements in an array in order from highest to lowest
+//the address of the array, as well as the address of an array to hold the return value are required
+//santax: order(array_to_sort,return_address,Number_of_elements_in_array)
+void order(int *numbers, int *ordered, int size)
+{
+	int subject;		//the value currently being counted and sorted
+	int bookmark=0;		//remembers the next element of the array that will be written to
+	int biggest,smallest;	//the largest and smallest elements of the array
+	int i;			//for loops
+
+	biggest=biggest_num(numbers,size);
+	smallest=smallest_num(numbers,size);
+
+	//put the array in order
+
+	subject=smallest;
+	do
+	{
+		for(i=0; i<size; i++)
+		{
+			if(subject == *(numbers+i))
+			{
+				ordered[bookmark] = *(numbers+i);
+				bookmark++;
+
+			}//end if
+
+		}//end for
+
+		subject++;
+
+	}
+	while(subject <= biggest);
+
+}//end order
