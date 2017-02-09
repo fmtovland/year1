@@ -14,6 +14,7 @@ Compiler: GCC 4.9.4
 */
 
 #include <stdio.h>
+#include <liblml.h>	//a library I wrote that contains an appropriate function
 #define NUMNO 3
 
 //prototypes
@@ -39,6 +40,7 @@ int main()
 
 }//end main
 
+/*
 float mean_average(int *numbers, int size)
 {
 	float total=0;
@@ -57,3 +59,4 @@ float mean_average(int *numbers, int size)
 
 }//end mean_average
 
+*/
