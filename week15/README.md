@@ -18,3 +18,12 @@ the highest value of 3 numbers. You should enter the 3 numbers using main() and
 these should be passed to your function. Your function should find the highest of
 these numbers and return it back to main(). Your main() should then display this
 highest number
+
+#mode.c requirements
+Returning a value from a function. Write a program that uses a function to calculate
+the most commonly used character from a number of 3 characters entered by a user.
+Your main() should read the 3 characters and these should be passed to your function.
+Your function should calculate the most common character of the 3 (assume the user
+enters more than one occurrence of any character). This character should then be
+returned to the main(). Your main() should then display this character with an
+appropriate message
