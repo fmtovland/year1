@@ -38,10 +38,33 @@ void records(int);		//print number of times the code was entered sucessfully and
 
 int main()
 {
-	records(0);
-	records(1);
-	records(2);
-	records(0);
+	char menu_choice='1';	//will hold the users decision of which menuitem they wish to execute
+	int menu_mode=0;	//will effect what menu selection options are available
+
+	while(menu_choice != '0')	//display a menu with options the user is allowed to pick
+	{
+		printf("Enter a number to select a function\n");
+		printf("\n0: Exit program");
+		printf("\n1: Enter Code");
+		printf("\n2: View Log");
+
+		if(menu_mode==1)	//if a code has been entered but not encrypted
+		{
+			printf("\n3: Encrypt code");
+
+		}//end if
+
+		if(menu_mode==2)	//if a code has been entered and encrypted
+		{
+			printf("\n3: Decrypt code");
+
+		}//end if
+
+		//take user input
+		printf("\n\n");
+		scanf("%c",&menu_choice);
+
+	}//end while
 
 }//end main
 
