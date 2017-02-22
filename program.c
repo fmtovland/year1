@@ -35,3 +35,22 @@ void records(int);		//print number of times the code was entered sucessfully and
 				//if argument is 2, increment errors
 				//if argument is 0, print the values of sucesses and errors
 				//sucesses and errors are both static variables.
+
+int main()
+{
+	records(0);
+
+}//end main
+
+void records(int mode)
+{
+	static int sucesses=0;	//number of times a correct code was sucessfully entered
+	static int errors=0;	//number of times an incorrect code was entered
+
+	if(mode==0)
+	{
+		printf("The code has been entered sucessfully %d times.\nThe code has been entered incorrectly %d times.\n",sucesses,errors);
+
+	}//end if
+
+}//end records
