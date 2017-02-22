@@ -39,6 +39,9 @@ void records(int);		//print number of times the code was entered sucessfully and
 int main()
 {
 	records(0);
+	records(1);
+	records(2);
+	records(0);
 
 }//end main
 
@@ -50,6 +53,18 @@ void records(int mode)
 	if(mode==0)
 	{
 		printf("The code has been entered sucessfully %d times.\nThe code has been entered incorrectly %d times.\n",sucesses,errors);
+
+	}//end if
+
+	if(mode==1)
+	{
+		sucesses++;
+
+	}//end if
+
+	if(mode==2)
+	{
+		errors++;
 
 	}//end if
 
