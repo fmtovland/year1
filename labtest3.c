@@ -40,7 +40,7 @@ int main()
 
 }//end main
 
-float convert_temp(float *celcius_temps);
+float convert_temp(float *celcius_temps)
 {
 	//variables
 	register int i;	//for loops
