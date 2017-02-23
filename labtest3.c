@@ -51,8 +51,8 @@ float convert_temp(float *celcius_temps)
 	for(i=0; i<NUMNO; i++)
 	{
 		average=average + *(celcius_temps+i);	//this should go under calculate average, but to save runtime it was placed into the existing loop
-		*(farenheit_temps+i)= (((*(celcius_temps+i)*9)/5)+32);	 //°F = ((°C x 9) / 5) + 32
-		printf("%f \t %f \n",*(celcius_temps),*(farenheit_temps));	//print result to screen
+		*(farenheit_temps+i)= ((( *(celcius_temps+i) * 9 ) / 5 ) + 32 );	 //°F = ((°C x 9) / 5) + 32
+		printf("%f \t %f \n",*(celcius_temps+i),*(farenheit_temps+i));	//print result to screen
 
 	}//end for
 
