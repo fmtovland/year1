@@ -88,7 +88,6 @@ int main()
 					menu_mode=1;	//add encrypt code option to the menu if get_code exited gracefully
 
 				}//end if
-				printf("%d%d%d%d",user_code[0],user_code[1],user_code[2],user_code[3]);	//print some debug info
 				break;
 			}//end enter code
 
