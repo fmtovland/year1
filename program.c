@@ -285,7 +285,7 @@ void records(int mode)
 
 	if(mode==0)
 	{
-		printf("The code has been entered sucessfully %d times.\nThe code has been entered incorrectly %d times.\n",sucesses,errors);
+		printf("The code has been verified as correct %d times.\nThe code has failed to verify %d times.\n",sucesses,errors);
 
 	}//end if
 
