@@ -76,7 +76,7 @@ int main()
 		{
 			case '0':	//exit program
 			{
-
+				printf("Have a nice day!\n");
 				break;
 
 			}//end exit program
