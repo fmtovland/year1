@@ -19,9 +19,11 @@ float in_Kelvin(float);	//convert from celcius to kelvin
 int main()
 {
 	//variables
+	register int i;                 //for loops
+
 	float temps_celcius[NUMNO];	//hold 5 temps
 	float mean;			//holds the mean of the 5 numbers
-	register int i;			//for loops
+	float mean_kelvin;		//holds the mean of the 5 numbers in degrees kelvin
 
 
 	//enter data
@@ -35,8 +37,15 @@ int main()
 	//execute convert_temp
 	mean = convert_temp(temps_celcius);
 
+	//find the average in degrees kelvin
+	mean_kelvin = in_Kelvin(mean);
+
 	//print average to the screen
 	printf("\nThe average tempreture is %.2f degrees celcius\n",mean);
+
+	//print the average in degrees kelvin to the screen
+	printf("Thats %.2f degrees kelvin\n",mean_kelvin);
+
 
 }//end main
 
@@ -64,4 +73,17 @@ float convert_temp(float *celcius_temps)
 
 	return average;
 
-}
+}//end convert_temp
+
+float in_Kelvin(float subject)
+{
+	//variables
+	float result;	//value to return when function ends
+
+	//convert subject to degrees kelvin using the formula °K = °C + 273
+	result = subject + 273;
+
+	//return result
+	return result;
+
+}//end in_Kelvin
