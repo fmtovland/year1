@@ -41,6 +41,8 @@ const int secret_code[NUMNO]={4,5,3,2};	//The encrypted form of 1234, the defaul
 
 int main()
 {
+	//variables
+	char overflow='\n';	//used while catching when user entered too many characters
 	char menu_choice='1';	//will hold the users decision of which menuitem they wish to execute
 	int menu_mode=0;	//will effect what menu selection options are available
 
@@ -67,29 +69,50 @@ int main()
 		printf("\n\n");
 		scanf("%c",&menu_choice);
 
-		switch(menu_choice);
+		switch(menu_choice)
 		{
 			case '0':	//exit program
 			{
+
+				break;
 			}//end exit program
 
 			case '1':	//enter the code
 			{
+
+				break;
 			}//end enter code
 
 			case '2':	//print the log
 			{
+
+				break;
 			}//end log
 
 			case '3':	//encrypt or decrypt the code
 			{
+
+				break;
 			}//end encrypt/decrypt
 
 			default:	//print an error
 			{
+				printf("Invalid input\n");
+
 			}//end error message
 
 		}//end switch
+
+		//if multiple characters were entered, ensure only the first one counts as input
+		do
+		{
+			scanf("%c",&overflow);
+
+		}//end while
+		while(overflow != '\n');
+
+		//4 lines for neatness
+		printf("\n\n\n\n");
 
 	}//end while
 
