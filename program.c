@@ -154,14 +154,14 @@ int get_code(int *user_input)
 
 	else
 	{
-		printf("code invalid\n");
+		printf("code invalid\n%d\n",errors);
 
 	}//end else
 
 
 	//convert the string to intagers and write to passed array
 
-	if(errors=0)	//if code was valid
+	if(errors==0)	//if code was valid
 	{
 		for(i=0; i<NUMNO; i++)
 		{
