@@ -45,7 +45,7 @@ const int secret_code[NUMNO]={4,5,3,2};	//The encrypted form of 1234, the defaul
 int main()
 {
 	//variables
-	int user_code[NUMNO];		//the code the user will enter
+	int user_code[NUMNO];	//the code the user will enter
 	char menu_choice='1';	//will hold the users decision of which menuitem they wish to execute
 	int menu_mode=0;	//will effect what menu selection options are available
 
@@ -88,6 +88,7 @@ int main()
 					menu_mode=1;	//add encrypt code option to the menu if get_code exited gracefully
 
 				}//end if
+				printf("%d%d%d%d",user_code[0],user_code[1],user_code[2],user_code[3]);	//print some debug info
 				break;
 			}//end enter code
 
@@ -130,6 +131,8 @@ int get_code(int *user_input)
 	char input[NUMNO];	//if you enter an invalid character to an intager in a while loop, it becomes perpetual
 				//so I will take in user input as characters and convert them to intagers
 
+	//get user input
+	printf("Enter the four digit access code now \n");
 	scanf("%4s",input);	//take in a 4 character string
 
 	//verify as valid
@@ -143,16 +146,30 @@ int get_code(int *user_input)
 
 	}//end for
 
-	//convert the string to intagers and write to passed array
-	for(i=0; i<NUMNO; i++)
+	if(errors==0)
 	{
-		if(errors=0)	
+		printf("code accepted\n");
+
+	}//end if
+
+	else
+	{
+		printf("code invalid\n");
+
+	}//end else
+
+
+	//convert the string to intagers and write to passed array
+
+	if(errors=0)	//if code was valid
+	{
+		for(i=0; i<NUMNO; i++)
 		{
 			*(user_input+i) = *(input+i) - 48;
 
-		}//end if
+		}//end for
 
-	}//end for
+	}//end if
 
 	return errors;
 
