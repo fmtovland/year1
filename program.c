@@ -19,7 +19,7 @@ Compiler: My home computer uses GCC 5.4.0
 */
 
 #include <stdio.h>
-#define SECRETCODE 4523		//The encrypted form of 1234, the default passcode
+#define NUMNO 4			//The number of numbers in the secret passcode
 
 //prototypes
 int get_code(int*);		//writes user input code into the passed intager array
@@ -35,6 +35,9 @@ void records(int);		//print number of times the code was entered sucessfully and
 				//if argument is 2, increment errors
 				//if argument is 0, print the values of sucesses and errors
 				//sucesses and errors are both static variables.
+
+//global variables
+const int secret_code[NUMNO]={4,5,3,2};	//The encrypted form of 1234, the default passcode
 
 int main()
 {
