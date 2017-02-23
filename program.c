@@ -36,13 +36,14 @@ void records(int);		//print number of times the code was entered sucessfully and
 				//if argument is 0, print the values of sucesses and errors
 				//sucesses and errors are both static variables.
 
+void overflow();		//prevent invalid input
+
 //global variables
 const int secret_code[NUMNO]={4,5,3,2};	//The encrypted form of 1234, the default passcode
 
 int main()
 {
 	//variables
-	char overflow='\n';	//used while catching when user entered too many characters
 	char menu_choice='1';	//will hold the users decision of which menuitem they wish to execute
 	int menu_mode=0;	//will effect what menu selection options are available
 
@@ -104,12 +105,7 @@ int main()
 		}//end switch
 
 		//if multiple characters were entered, ensure only the first one counts as input
-		do
-		{
-			scanf("%c",&overflow);
-
-		}//end while
-		while(overflow != '\n');
+		overflow();
 
 		//4 lines for neatness
 		printf("\n\n\n\n");
@@ -142,3 +138,16 @@ void records(int mode)
 	}//end if
 
 }//end records
+
+void overflow()
+{
+	char a='\0';	//hold a character to check if input is done
+
+	do	//suck input to the ether until a newline is detected
+	{
+		scanf("%c",&a);
+
+	}//end while
+	while(a != '\n');
+
+}//end overflow
