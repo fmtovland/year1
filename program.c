@@ -13,7 +13,7 @@ Dates:
 23-02-17
 
 OS: Gentoo
-Kernel: Linux versions 4.10, (I update regularly)
+Kernel: Linux 4.10
 Compiler: My home computer uses GCC 5.4.0
 	  My laptop uses GCC 4.9.4
 
@@ -27,11 +27,11 @@ Compiler: My home computer uses GCC 5.4.0
 int get_code(int*);		//writes user input code into the passed intager array
 				//the return value is non zero if invalid input is detected
 
+void crypto(int*,int*);		//execute encrypt_code() or decrypt_code() depending on input
+				//second argument is passes to encrypt_code or decrypt_code
 void encrypt_code(int*);	//performs the encryption algorithm specified in README.md
 void decrypt_code(int*);	//performs the encryption algorithm specified in README.md in reverse
-
 int verify_code(int*);		//check if encrypted code is correct. return value of 0 if correct.
-
 void records(int);		//print number of times the code was entered sucessfully and incorrectly
 				//if argument is 1, increment sucesses
 				//if argument is 2, increment errors
@@ -99,26 +99,7 @@ int main()
 
 			case '3':	//encrypt or decrypt the code if avaliable
 			{
-				if(menu_mode == 1)
-				{
-					encrypt_code(user_code);
-					menu_mode=2;
-
-				}//end if
-
-				else if(menu_mode == 2)
-				{
-					decrypt_code(user_code);
-					menu_mode=1;
-
-				}//end else if
-
-				else
-				{
-					printf("Invalid input\n");
-
-				}//end else
-
+				crypto(&menu_mode,user_code);
 				break;
 			}//end encrypt/decrypt
 
@@ -140,6 +121,33 @@ int main()
 
 }//end main
 
+
+
+
+void crypto(int *menu_mode, int *user_code)
+{
+	if(*menu_mode == 1)
+	{
+		encrypt_code(user_code);
+		*menu_mode=2;
+
+	}//end if
+
+	else if(*menu_mode == 2)
+	{
+		decrypt_code(user_code);
+		*menu_mode=1;
+
+		}//end else if
+
+	else
+	{
+		printf("Invalid input\n");
+
+	}//end else
+
+
+}//end crypto
 
 
 
