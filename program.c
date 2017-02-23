@@ -42,6 +42,8 @@ void overflow();		//prevent invalid input
 //global variables
 const int secret_code[NUMNO]={4,5,3,2};	//The encrypted form of 1234, the default passcode
 
+
+
 int main()
 {
 	//variables
@@ -121,6 +123,11 @@ int main()
 
 }//end main
 
+
+
+
+
+
 //function to get user input
 int get_code(int *user_input)
 {
@@ -145,8 +152,16 @@ int get_code(int *user_input)
 
 	}//end for
 
-	if(errors==0)
+	//convert the string to intagers and write to passed array (or not)
+
+	if(errors==0)	//if code was valid
 	{
+		for(i=0; i<NUMNO; i++)
+		{
+			*(user_input+i) = *(input+i) - 48;
+
+		}//end for
+
 		printf("code accepted\n");
 
 	}//end if
@@ -158,21 +173,14 @@ int get_code(int *user_input)
 	}//end else
 
 
-	//convert the string to intagers and write to passed array
-
-	if(errors==0)	//if code was valid
-	{
-		for(i=0; i<NUMNO; i++)
-		{
-			*(user_input+i) = *(input+i) - 48;
-
-		}//end for
-
-	}//end if
-
 	return errors;
 
 }//end get_code
+
+
+
+
+
 
 //a funtion that will print number of times the code was entered sucessfully
 //static ints hold the number of times each happened
@@ -200,6 +208,11 @@ void records(int mode)
 	}//end if
 
 }//end records
+
+
+
+
+
 
 //make sure too many characters were not entered
 void overflow()
