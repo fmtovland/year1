@@ -20,7 +20,9 @@ int main()
 {
 	//variables
 	float temps_celcius[NUMNO];	//hold 5 temps
+	float mean;			//holds the mean of the 5 numbers
 	register int i;			//for loops
+
 
 	//enter data
 	printf("Enter 5 temperatures\n");
@@ -30,5 +32,33 @@ int main()
 
 	}//end for
 
+	//execute convert_temp
+	mean = convert_temp(temps_celcius);
+
+	//print average to the screen
+	printf("\nThe average tempreture is %f\n",mean);
 
 }//end main
+
+float convert_temp(float *celcius_temps);
+{
+	//variables
+	register int i;	//for loops
+	float farenheit_temps[NUMNO];
+	float average=0;
+
+	//convert to farenheit and print to screen
+	for(i=0; i<NUMNO; i++)
+	{
+		average=average + *(celcius_temps+i);	//this should go under calculate average, but to save runtime it was placed into the existing loop
+		*(farenheit_temps+i)= ((*(celcius_temps+i)*9)/5)+32) //°F = ((°C x 9) / 5) + 32
+		printf("%f \t %f \n",*(celcius_temps),*(farenheit_temps));	//print result to screen
+
+	}//end for
+
+	//calculate average
+	average=average/NUMNO;	//when this statement executes, the float average will already contain the total, and there are NUMNO numbers
+
+	return average;
+
+}
