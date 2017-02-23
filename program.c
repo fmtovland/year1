@@ -10,6 +10,7 @@ Program Author: Liam McCormick
 
 Dates:
 22-02-17 - started project
+23-02-17
 
 OS: Gentoo
 Kernel: Linux versions 4.10, (I update regularly)
@@ -123,7 +124,37 @@ int main()
 //function to get user input
 int get_code(int *user_input)
 {
-	return 0;
+	//variables
+	register int i;		//for the loop
+	int errors=0;		//number of incorrect characters
+	char input[NUMNO];	//if you enter an invalid character to an intager in a while loop, it becomes perpetual
+				//so I will take in user input as characters and convert them to intagers
+
+	scanf("%4s",input);	//take in a 4 character string
+
+	//verify as valid
+	for(i=0; i<NUMNO; i++)
+	{
+		if( *(input+i) < '0' || *(input+i) > '9' )
+		{
+			errors++;
+
+		}//end if
+
+	}//end for
+
+	//convert the string to intagers and write to passed array
+	for(i=0; i<NUMNO; i++)
+	{
+		if(errors=0)	
+		{
+			*(user_input+i) = *(input+i) - 48;
+
+		}//end if
+
+	}//end for
+
+	return errors;
 
 }//end get_code
 
