@@ -95,12 +95,31 @@ int main()
 
 			case '2':	//print the log
 			{
-
+				records(0);
 				break;
 			}//end log
 
-			case '3':	//encrypt or decrypt the code
+			case '3':	//encrypt or decrypt the code if avaliable
 			{
+				if(menu_mode == 1)
+				{
+					encrypt_code(user_code);
+					menu_mode=2;
+
+				}//end if
+
+				else if(menu_mode == 2)
+				{
+					decrypt_code(user_code);
+					menu_mode=1;
+
+				}//end else if
+
+				else
+				{
+					printf("Invalid input\n");
+
+				}//end else
 
 				break;
 			}//end encrypt/decrypt
@@ -124,6 +143,24 @@ int main()
 }//end main
 
 
+
+
+
+void encrypt_code(int *code)	//perform the encryption algorithm on the array passed over
+{
+
+
+}//end encrypt_code
+
+
+
+
+
+void decrypt_code(int *code)	//perform the decryption algorithm on the array passed over
+{
+
+
+}//end decrypt_code
 
 
 
