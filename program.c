@@ -157,12 +157,20 @@ void encrypt_code(int *code)	//perform the encryption algorithm on the array pas
 			i=i+2;
 		}//end if
 
-		else
+		else	//swap each element with the element two addresses higher
 		{
 			left_hand= *(code+i);
 			*(code+i)= *(code+i+2);
 			*(code+i+2)= left_hand;
 		}//end else
+
+	}//end for
+
+	//Add 1 to each number and If any number has a value equal to 10, change this value to 0.
+	for(i=0; i<NUMNO; i++)
+	{
+		*(code+i)= *(code+i) + 1;
+		*(code+i)= *(code+i) % 10;
 
 	}//end for
 
