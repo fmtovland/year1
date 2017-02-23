@@ -57,14 +57,14 @@ float convert_temp(float *celcius_temps)
 	float average=0;
 
 	//headings for the table
-	printf("\nCelc \t Far\n");
+	printf("\nCelcius \t Farenheit\n");
 
 	//convert to farenheit and print to screen
 	for(i=0; i<NUMNO; i++)
 	{
 		average=average + *(celcius_temps+i);	//this should go under calculate average, but to save runtime it was placed into the existing loop
 		*(farenheit_temps+i)= ((( *(celcius_temps+i) * 9 ) / 5 ) + 32 );	 //°F = ((°C x 9) / 5) + 32
-		printf("%.2f \t %.2f \n",*(celcius_temps+i),*(farenheit_temps+i));	//print result to screen
+		printf("%.2f \t\t %.2f \n",*(celcius_temps+i),*(farenheit_temps+i));	//print result to screen
 
 	}//end for
 
