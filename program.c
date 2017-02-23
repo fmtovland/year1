@@ -21,6 +21,7 @@ Compiler: My home computer uses GCC 5.4.0
 
 #include <stdio.h>
 #define NUMNO 4			//The number of numbers in the secret passcode
+				//numno must be a multiple of 4
 
 //prototypes
 int get_code(int*);		//writes user input code into the passed intager array
@@ -39,11 +40,8 @@ void records(int);		//print number of times the code was entered sucessfully and
 
 void overflow();		//prevent invalid input
 
-//global variables
-const int secret_code[NUMNO]={4,5,3,2};	//The encrypted form of 1234, the default passcode
 
-
-
+//functions
 int main()
 {
 	//variables
@@ -148,10 +146,53 @@ int main()
 
 void encrypt_code(int *code)	//perform the encryption algorithm on the array passed over
 {
+	register int i;		//for loop
+	int left_hand;		//a number will be held in left hand while I move the number he is swapping addresses with to his old address
 
+	//swap first digit and third, second with forth etc...
+	for(i=0; i<NUMNO-2; i++)
+	{
+		if(i%4 == 2)//if i points to the third element (originally the first)
+		{
+			i=i+2;
+		}//end if
+
+		else
+		{
+			left_hand= *(code+i);
+			*(code+i)= *(code+i+2);
+			*(code+i+2)= left_hand;
+		}//end else
+
+	}//end for
+
+	//verify encrypted code matches stored code
+	verify_code(code);
 
 }//end encrypt_code
 
+
+
+
+//verification function
+int verify_code(int *code)
+{
+	const int secret_code[NUMNO]={4,5,3,2};	//The encrypted form of 1234, the default passcode
+
+	//verify correct
+	if( *code == *secret_code)
+	{
+		printf("Code is correct\n");
+		records(1);
+	}//end if
+
+	else
+	{
+		printf("Code is incorrect \n");
+		records(2);
+	}//end else
+
+}//end verify_code
 
 
 
