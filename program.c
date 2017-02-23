@@ -44,6 +44,7 @@ const int secret_code[NUMNO]={4,5,3,2};	//The encrypted form of 1234, the defaul
 int main()
 {
 	//variables
+	int user_code[NUMNO];		//the code the user will enter
 	char menu_choice='1';	//will hold the users decision of which menuitem they wish to execute
 	int menu_mode=0;	//will effect what menu selection options are available
 
@@ -76,11 +77,16 @@ int main()
 			{
 
 				break;
+
 			}//end exit program
 
 			case '1':	//enter the code
 			{
+				if(get_code(user_code)==0)	//this if statement executes the code for recieving user input
+				{
+					menu_mode=1;	//add encrypt code option to the menu if get_code exited gracefully
 
+				}//end if
 				break;
 			}//end enter code
 
@@ -114,6 +120,15 @@ int main()
 
 }//end main
 
+//function to get user input
+int get_code(int *user_input)
+{
+	return 0;
+
+}//end get_code
+
+//a funtion that will print number of times the code was entered sucessfully
+//static ints hold the number of times each happened
 void records(int mode)
 {
 	static int sucesses=0;	//number of times a correct code was sucessfully entered
@@ -139,6 +154,7 @@ void records(int mode)
 
 }//end records
 
+//make sure too many characters were not entered
 void overflow()
 {
 	char a='\0';	//hold a character to check if input is done
