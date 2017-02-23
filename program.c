@@ -64,6 +64,30 @@ int main()
 		printf("\n\n");
 		scanf("%c",&menu_choice);
 
+		switch(menu_choice);
+		{
+			case '0':	//exit program
+			{
+			}//end exit program
+
+			case '1':	//enter the code
+			{
+			}//end enter code
+
+			case '2':	//print the log
+			{
+			}//end log
+
+			case '3':	//encrypt or decrypt the code
+			{
+			}//end encrypt/decrypt
+
+			default:	//print an error
+			{
+			}//end error message
+
+		}//end switch
+
 	}//end while
 
 }//end main
