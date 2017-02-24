@@ -225,6 +225,7 @@ void decrypt_code(int *code)	//perform the decryption algorithm on the array pas
 	//subtract 1 from each number and If any number has a value equal to -1, change this value to 9.
 	for(i=0; i<NUMNO; i++)
 	{
+		*(code+i)= *(code+i) +10;
 		*(code+i)= *(code+i) - 1;
 		*(code+i)= *(code+i) % 10;
 
