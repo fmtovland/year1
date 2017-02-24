@@ -316,7 +316,7 @@ int get_code(int *user_input)
 
 	else
 	{
-		printf("code invalid\n%d\n",errors);
+		printf("code invalid\n");
 
 	}//end else
 
