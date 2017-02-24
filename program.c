@@ -158,11 +158,11 @@ void encrypt_code(int *code)	//perform the encryption algorithm on the array pas
 	int left_hand;		//a number will be held in left hand while I move the number he is swapping addresses with to his old address
 
 	//swap first digit and third, second with forth etc...
-	for(i=0; i<NUMNO-2; i++)
+	for(i=0; i<NUMNO; i++)
 	{
-		if(i%4 == 2)//if i points to the third element (originally the first)
+		if(i%4 >= 2)//if i points to every third or forth element
 		{
-			i=i+2;
+			i=i++;
 		}//end if
 
 		else	//swap each element with the element two addresses higher
@@ -215,7 +215,25 @@ int verify_code(int *code)
 
 void decrypt_code(int *code)	//perform the decryption algorithm on the array passed over
 {
+	register int i;		//for loop
+	int left_hand;		//a number will be held in left hand while I move the number he is swapping addresses with to his old address
 
+	//swap first digit and third, second with forth etc...
+	for(i=0; i<NUMNO-2; i++)
+	{
+		if(i%4 == 2)//if i points to the third element (originally the first)
+		{
+			i=i+2;
+		}//end if
+
+		else	//swap each element with the element two addresses higher
+		{
+			left_hand= *(code+i+2);
+			*(code+i+2)= *(code+i);
+			*(code+i)= left_hand;
+		}//end else
+
+	}//end for
 
 }//end decrypt_code
 
