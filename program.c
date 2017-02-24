@@ -204,7 +204,7 @@ int verify_code(int *code)
 	//count correct digits
 	for(i=0; i<NUMNO; i++)
 	{
-		if(*(code+i) == *(access_code+i)
+		if(*(code+i) == *(access_code+i))
 		{
 			corrects++;
 
