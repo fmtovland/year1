@@ -233,7 +233,7 @@ void decrypt_code(int *code)	//perform the decryption algorithm on the array pas
 	//swap first digit and third, second with forth etc...
 	for(i=0; i<NUMNO; i++)
 	{
-		if(i%4 == 2)//if i points to the third or forth element
+		if(i%4 >= 2)//if i points to the third or forth element
 		{
 			i=i++;
 		}//end if
@@ -249,7 +249,7 @@ void decrypt_code(int *code)	//perform the decryption algorithm on the array pas
 
 	//print the decrypted code
 	printf("The code originally entered was ");
-	for(i=0; i<NUMNO; i++)	
+	for(i=0; i<NUMNO; i++)
 	{
 		printf("%d",*(code+i));
 
@@ -265,16 +265,17 @@ void decrypt_code(int *code)	//perform the decryption algorithm on the array pas
 int get_code(int *user_input)
 {
 	//variables
-	register int i;		//for the loop
-	int errors=0;		//number of incorrect characters
-	char input[NUMNO];	//if you enter an invalid character to an intager in a while loop, it becomes perpetual
-				//so I will take in user input as characters and convert them to intagers
+	register int i;			//for the loop
+	int errors=0;			//number of incorrect characters
+	char input[NUMNO+1]={'\0'};	//if you enter an invalid character to an intager in a while loop, it becomes perpetual
+					//so I will take in user input as characters and convert them to intagers
 
 	//get user input
 	printf("Enter the four digit access code now \n");
 	scanf("%4s",input);	//take in a 4 character string
 
 	//verify as valid
+	errors=overflow();
 	for(i=0; i<NUMNO; i++)
 	{
 		if( *(input+i) < '0' || *(input+i) > '9' )
@@ -292,6 +293,7 @@ int get_code(int *user_input)
 		for(i=0; i<NUMNO; i++)
 		{
 			*(user_input+i) = *(input+i) - 48;
+			printf("%d",*user_input+i);
 
 		}//end for
 
