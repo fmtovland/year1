@@ -10,7 +10,8 @@ Program Author: Liam McCormick
 
 Dates:
 22-02-17 - started project
-23-02-17
+23-02-17 - first working beta
+24-02-17 - project complete
 
 OS: Gentoo
 Kernel: Linux 4.10
