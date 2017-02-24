@@ -166,7 +166,7 @@ void encrypt_code(int *code)	//perform the encryption algorithm on the array pas
 	{
 		if(i%4 >= 2)//if i points to every third or forth element
 		{
-			i=i++;
+			i++;
 		}//end if
 
 		else	//swap each element with the element two addresses higher
@@ -197,7 +197,7 @@ void encrypt_code(int *code)	//perform the encryption algorithm on the array pas
 //verification function
 int verify_code(int *code)
 {
-	const int access_code[NUMNO]={4,5,3,2};	//The encrypted form of 1234, the default passcode
+	const int access_code[NUMNO]={4,5,2,3};	//The encrypted form of 1234, the default passcode
 	int corrects=0;
 	register int i;
 
@@ -209,9 +209,6 @@ int verify_code(int *code)
 			corrects++;
 
 		}//end if
-
-		//debuging
-		printf("%d %d\n",*(code+i),*(access_code+i));
 
 	}//end for
 
@@ -252,7 +249,7 @@ void decrypt_code(int *code)	//perform the decryption algorithm on the array pas
 	{
 		if(i%4 >= 2)//if i points to the third or forth element
 		{
-			i=i++;
+			i++;
 		}//end if
 
 		else	//swap each element with the element two addresses higher
