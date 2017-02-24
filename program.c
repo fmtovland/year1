@@ -62,7 +62,7 @@ int main()
 
 		}//end if
 
-		if(menu_mode==2)	//if a code has been entered and encrypted
+		if(menu_mode==-1)	//if a code has been entered and encrypted
 		{
 			printf("\n3: Decrypt code");
 
@@ -129,11 +129,11 @@ void crypto(int *menu_mode, int *user_code)
 	if(*menu_mode == 1)
 	{
 		encrypt_code(user_code);
-		*menu_mode=2;
+		*menu_mode=-1;
 
 	}//end if
 
-	else if(*menu_mode == 2)
+	else if(*menu_mode == -1)
 	{
 		decrypt_code(user_code);
 		*menu_mode=1;
