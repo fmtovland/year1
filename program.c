@@ -218,12 +218,20 @@ void decrypt_code(int *code)	//perform the decryption algorithm on the array pas
 	register int i;		//for loop
 	int left_hand;		//a number will be held in left hand while I move the number he is swapping addresses with to his old address
 
-	//swap first digit and third, second with forth etc...
-	for(i=0; i<NUMNO-2; i++)
+	//subtract 1 from each number and If any number has a value equal to -1, change this value to 9.
+	for(i=0; i<NUMNO; i++)
 	{
-		if(i%4 == 2)//if i points to the third element (originally the first)
+		*(code+i)= *(code+i) - 1;
+		*(code+i)= *(code+i) % 10;
+
+	}//end for
+
+	//swap first digit and third, second with forth etc...
+	for(i=0; i<NUMNO; i++)
+	{
+		if(i%4 == 2)//if i points to the third or forth element
 		{
-			i=i+2;
+			i=i++;
 		}//end if
 
 		else	//swap each element with the element two addresses higher
@@ -234,6 +242,15 @@ void decrypt_code(int *code)	//perform the decryption algorithm on the array pas
 		}//end else
 
 	}//end for
+
+	//print the decrypted code
+	printf("The code originally entered was ");
+	for(i=0; i<NUMNO; i++)	
+	{
+		printf("%d",*(code+i));
+
+	}//end for
+	printf("\n");	//and a new line for neatness
 
 }//end decrypt_code
 
