@@ -198,9 +198,22 @@ void encrypt_code(int *code)	//perform the encryption algorithm on the array pas
 int verify_code(int *code)
 {
 	const int access_code[NUMNO]={4,5,3,2};	//The encrypted form of 1234, the default passcode
+	int corrects=0;
+	register int i;
+
+	//count correct digits
+	for(i=0; i<NUMNO; i++)
+	{
+		if(*(code+i) == *(access_code+i)
+		{
+			corrects++;
+
+		}//end if
+
+	}//end for
 
 	//verify correct
-	if( *code == *access_code)
+	if(corrects == NUMNO)
 	{
 		printf("Code is correct\n");
 		records(1);
