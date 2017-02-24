@@ -38,7 +38,7 @@ void records(int);		//print number of times the code was entered sucessfully and
 				//if argument is 0, print the values of sucesses and errors
 				//sucesses and errors are both static variables.
 
-void overflow();		//prevent invalid input
+int overflow();			//prevent invalid input
 
 
 //functions
@@ -71,6 +71,13 @@ int main()
 		//take user input
 		printf("\n\n");
 		scanf("%c",&menu_choice);
+
+		//if multiple characters were entered, print error message
+		if(overflow() != 0)
+		{
+			menu_choice='-';
+
+		}//end if
 
 		switch(menu_choice)
 		{
@@ -110,9 +117,6 @@ int main()
 			}//end error message
 
 		}//end switch
-
-		//if multiple characters were entered, ensure only the first one counts as input
-		overflow();
 
 		//4 lines for neatness
 		printf("\n\n\n\n");
@@ -344,15 +348,19 @@ void records(int mode)
 
 
 //make sure too many characters were not entered
-void overflow()
+int overflow()
 {
 	char a='\0';	//hold a character to check if input is done
+	register int i=-1;
 
 	do	//suck input to the ether until a newline is detected
 	{
 		scanf("%c",&a);
+		i++;
 
 	}//end while
 	while(a != '\n');
+
+	return i;
 
 }//end overflow
