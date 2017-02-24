@@ -294,7 +294,6 @@ int get_code(int *user_input)
 		for(i=0; i<NUMNO; i++)
 		{
 			*(user_input+i) = *(input+i) - 48;
-			printf("%d",*user_input+i);
 
 		}//end for
 
