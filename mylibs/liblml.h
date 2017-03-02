@@ -202,3 +202,21 @@ void order(int *numbers, int *ordered, int size)
 	while(subject <= biggest);
 
 }//end order
+
+//make sure too many characters were not entered
+int overflow()
+{
+	char a='\0';	//hold a character to check if input is done
+	register int i=-1;
+
+	do	//suck input to the ether until a newline is detected
+	{
+		scanf("%c",&a);
+		i++;
+
+	}//end while
+	while(a != '\n');
+
+	return i;
+
+}//end overflow
