@@ -25,7 +25,7 @@ int wordget(char *output, int length)
 	while(i<length)
 	{
 		scanf("%c",&buffer);	//scan character into buffer
-		if(buffer!='\n');	//if not at end of input
+		if(buffer!='\n')	//if not at end of input
 		*(output+i)=buffer;	//put buffer into next slot of output
 		else
 		break;	//end before i = length if a \n is detected
