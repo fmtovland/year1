@@ -19,6 +19,7 @@ int overflow()
 //Input a string of length defineable by #defines or variables
 int wordget(char *output, int length)
 {
+	length=length-1;	//auto account for the null character
 	register int i=0;
 	char buffer=0;
 
