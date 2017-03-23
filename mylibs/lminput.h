@@ -1,3 +1,5 @@
+#include <stdio.h>
+
 //make sure too many characters were not entered (good for scanfs)
 int overflow()
 {
