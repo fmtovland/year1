@@ -40,22 +40,34 @@ struct person
 	char country[NAMLEN];	//eg Scotland
 };
 
+//prototypes
+struct person getman();
+
 int main()
 {
 	struct person john,mike; //two records for people
+
+	john=getman();
+	
+
+
+}
+
+struct person getman()
+{
+	struct person man;
 	register int i;
 
-	//enter data about john
 	printf("Enter firstname: ");
-	wordget(john.firstname,NAMLEN);
+	wordget(man.firstname,NAMLEN);
 
 	printf("Enter surname: ");
-	wordget(john.surname,NAMLEN);
+	wordget(man.surname,NAMLEN);
 
-	printf("Enter date of birth: ")
+	printf("Enter date of birth: ");
 	for(i=0; i<3; i++)
 	{
-		scanf("%2d",&john.dob.day+i);
+		scanf("%2d",&man.dob.day+i);
 		if(i==2)
 		overflow();
 		else
@@ -63,16 +75,17 @@ int main()
 	}
 
 	printf("Enter height in cm: ");
-	scanf("%d",&john.height);
+	scanf("%d",&man.height);
 
 	printf("Enter weight in grammes: ");
-	scanf("%d",&john.weight);
+	scanf("%d",&man.weight);
 
 	printf("Enter eyecolour (hexidecimal): #");
-	scanf("%x",&john.eyecolour);
+	scanf("%x",&man.eyecolour);
 
 	printf("Enter home country:");
-	wordget(john.country,NAMLEN);
+	wordget(man.country,NAMLEN);
 
+	return man;
 
-}
+}//end getman
