@@ -50,7 +50,7 @@ int main()
 
 	john=getman();
 	printf("\n");
-
+	display(john);
 
 }
 
@@ -92,11 +92,11 @@ struct person getman()
 
 }//end getman
 
-void display(struct person man);
+void display(struct person man)
 {
-	printf("Firstname is %s\n",man.firstname,NAMLEN);
-	printf("Surname is %s\n",man.surname,NAMLEN);
-	printf("date of birth is %d/%d/%d\n",man.dob.day);
+	printf("Firstname is %s\n",man.firstname);
+	printf("Surname is %s\n",man.surname);
+	printf("date of birth is %d/%d/%d\n",man.dob.day,man.dob.month,man.dob.year);
 	printf("height is %d\n",man.height);
 	printf("weight in grammes is %d\n",man.weight);
 	printf("eyecolour is #%x\n",man.eyecolour);
