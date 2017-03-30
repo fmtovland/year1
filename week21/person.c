@@ -42,12 +42,14 @@ struct person
 
 //prototypes
 struct person getman();
+void display(struct person);
 
 int main()
 {
 	struct person john,mike; //two records for people
 
 	john=getman();
+	printf("\n");
 
 
 }
@@ -90,3 +92,14 @@ struct person getman()
 
 }//end getman
 
+void display(struct person man);
+{
+	printf("Firstname is %s\n",man.firstname,NAMLEN);
+	printf("Surname is %s\n",man.surname,NAMLEN);
+	printf("date of birth is %d/%d/%d\n",man.dob.day);
+	printf("height is %d\n",man.height);
+	printf("weight in grammes is %d\n",man.weight);
+	printf("eyecolour is #%x\n",man.eyecolour);
+	printf("home country is %s\n",man.country);
+
+}//end display
