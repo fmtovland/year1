@@ -36,7 +36,7 @@ struct person
 	struct date dob;
 	int height;		//should be around 150cm
 	int weight;		//in grammes
-	int eyecolour;		//hexidecimal colour value. #00ff00 is green for example
+	unsigned int eyecolour;	//hexidecimal colour value. #00ff00 is green for example
 	char country[NAMLEN];	//eg Scotland
 };
 
@@ -48,7 +48,6 @@ int main()
 	struct person john,mike; //two records for people
 
 	john=getman();
-	
 
 
 }
@@ -82,10 +81,12 @@ struct person getman()
 
 	printf("Enter eyecolour (hexidecimal): #");
 	scanf("%x",&man.eyecolour);
+	overflow();
 
-	printf("Enter home country:");
+	printf("Enter home country: ");
 	wordget(man.country,NAMLEN);
 
 	return man;
 
 }//end getman
+
