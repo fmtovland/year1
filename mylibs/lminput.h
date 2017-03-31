@@ -1,5 +1,3 @@
-#include <stdio.h>
-
 //make sure too many characters were not entered (good for scanfs)
 int overflow()
 {
@@ -35,6 +33,8 @@ int wordget(char *output, int length)
 
 		i++;
 	}
+
+	*(output+i)='\0';	//null termiate
 
 	i=0;
 	if(buffer!='\n')
