@@ -77,8 +77,14 @@ void enter_psngrs(struct passenger *editable,int passno)	//passno is the number 
 	{
 		printf("Enter firstname for passenger %d: ",i);
 		wordget((editable+i)->firstname,NAMNO);
+
+		printf("Enter surname for passenger %d: ",i);
+                wordget((editable+i)->surname,NAMNO);
+
+		printf("Enter seat number for passenger %d: ",i);
+		scanf("%d",(editable+i)->seatno);
 	}
-}
+}//end enterpsngrs
 
 void display_psngrs(struct passenger *person2disp,int passno)	//passno is number of passengers
 {
