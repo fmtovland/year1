@@ -62,9 +62,11 @@ void enter_psngrs(struct passenger *editable,int passno)	//passno is the number 
 	//get flight and date for both passengers
 	printf("Enter Flight number for the %d passengers\n",passno);
 	scanf("%d",&flightno);
+	overflow();
 
 	printf("Enter Flight date for the %d passengers (eg. 06/04/1998)\n",passno);
 	scanf("%2d %*c %3s %*c %4d",&day_of_flight.day,day_of_flight.month,&day_of_flight.year);	//will scan in a year in the format above
+	overflow();
 
 	for(i=0; i<passno; i++)		//copy this data into the passenger sturct array
 	{
@@ -82,12 +84,24 @@ void enter_psngrs(struct passenger *editable,int passno)	//passno is the number 
                 wordget((editable+i)->surname,NAMNO);
 
 		printf("Enter seat number for passenger %d: ",i);
-		scanf("%d",(editable+i)->seatno);
+		scanf("%d",&(editable+i)->seatno);
 	}
 }//end enterpsngrs
 
 void display_psngrs(struct passenger *person2disp,int passno)	//passno is number of passengers
 {
+	register int i;
+
+	printf("\n");
+	for(i=0; i<passno; i++)
+	{
+		printf("%d",i);	//print passenger number
+		printf("firstname: %s\n",person2disp->firstname);
+		printf("surname: %s\n",person2disp->surname);
+		printf("Flight number: %d\n",person2disp->flightno);
+		printf("Date to depart: %d/%s/%d\n",person2disp->flyday.day,person2disp->flyday.month,person2disp->flyday.year);
+		printf("Seat number: %d\n",person2disp->seatno);
+	}//end for
 }
 
 //make sure too many characters were not entered (good for scanfs)
