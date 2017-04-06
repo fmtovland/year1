@@ -13,6 +13,7 @@ Compiler: GCC 4.9.4
 #include <stdlib.h>
 #define	NAMNO 15	//max characters in the firstname
 #define SURNO 25	//max characters in the surname
+#define PASNO 2		//number of passengers the program can deal with
 
 //struct templates
 struct date	//hold a date
@@ -37,4 +38,27 @@ void display_psngr(struct passenger);	//remove passenger info
 
 int main()
 {
+	struct passenger passengers[PASNO];	//hold passenger data
+	register int i;				//for loops
+	int input;				//menuchoice
+
+	//ask user to enter passenger details
+	printf("Enter the details of a passenger\n");
+	enter_psngr(passengers[0]);
+
+	printf("Enter the details of another passenger\n");
+	enter_psngr(passengers[1]);
+
+	//ask user which passenger they want the details of
+	printf("Who do you want the details of?\n");
+	for(i=0; i<PASNO; i++)
+	{
+		printf("1. %s %s\n 2. %s %s\n",passengers[i].firstname,passengers[i].surname);
+
+	}
+	scanf("%d",&input);
+
+	//display appropriate passenger
+	display_psngr(passengers[input];
+
 }//end main
