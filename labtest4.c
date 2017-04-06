@@ -33,40 +33,26 @@ struct passenger	//hold passenger info
 };
 
 //prototypes
-void enter_psngr(struct *passenger);	//enter passenger info
+void enter_psngrs(struct *passenger);	//enter passenger info
 void display_psngr(struct passenger);	//remove passenger info
 
 int main()
 {
 	struct passenger passengers[PASNO];	//hold passenger data
 	register int i;				//for loops
-	int input;				//menuchoice
 
 	//ask user to enter passenger details
-	printf("Enter the details of a passenger\n");
-	for(i=0; i<PASNO; i++)
-	{
-		enter_psngr(passengers+i);
+	enter_psngrs(passengers);
 
-	}//end for
-
-	//ask user which passenger they want the details of
-	printf("Who do you want the details of?\n");
-	for(i=0; i<PASNO; i++)
-	{
-		printf("1. %s %s\n 2. %s %s\n",passengers[i].firstname,passengers[i].surname);
-
-	}
-	scanf("%d",&input);
-
-	//display appropriate passenger info (or error)
-	if(input<=PASNO && input>0)
+	//Display passenger info
 	display_psngr(passengers[input];
-	else
-	printf("Error: Passenger not found\n");
 
 	return 0;
 
 }//end main
 
 void enter_psngr(struct passengers *editable)
+{
+	
+
+}
