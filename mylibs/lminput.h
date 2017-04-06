@@ -1,3 +1,7 @@
+//prototypes
+int overflow();
+int wordget(char*,int);
+
 //make sure too many characters were not entered (good for scanfs)
 int overflow()
 {
