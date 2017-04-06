@@ -33,7 +33,7 @@ struct passenger	//hold passenger info
 };
 
 //prototypes
-void enter_psngr(struct passenger);	//enter passenger info
+void enter_psngr(struct *passenger);	//enter passenger info
 void display_psngr(struct passenger);	//remove passenger info
 
 int main()
@@ -44,10 +44,11 @@ int main()
 
 	//ask user to enter passenger details
 	printf("Enter the details of a passenger\n");
-	enter_psngr(passengers[0]);
+	for(i=0; i<PASNO; i++)
+	{
+		enter_psngr(passengers+i);
 
-	printf("Enter the details of another passenger\n");
-	enter_psngr(passengers[1]);
+	}//end for
 
 	//ask user which passenger they want the details of
 	printf("Who do you want the details of?\n");
@@ -58,7 +59,14 @@ int main()
 	}
 	scanf("%d",&input);
 
-	//display appropriate passenger
+	//display appropriate passenger info (or error)
+	if(input<=PASNO && input>0)
 	display_psngr(passengers[input];
+	else
+	printf("Error: Passenger not found\n");
+
+	return 0;
 
 }//end main
+
+void enter_psngr(struct passengers *editable)
