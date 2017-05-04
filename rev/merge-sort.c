@@ -56,21 +56,21 @@ int main()
 		//copy list1 into list 2 while sorting
 		block=0;
 		i=0;
-		while(i<actno)
+		while(block<actno)
 		{
 			element1=element2=0;
 			while(element1<sortsize && element2<sortsize)	//merge 2 blocks together
 			{
-				if( *(list1+(block*sortsize)+element1) > *(list1+(block*sortsize)+sortsize+element2) )
+				if( *(list1+block+element1) > *(list1+block+sortsize+element2) )
 				{
-					*(list2+i) = *(list1+(block*sortsize)+sortsize+element2);
+					*(list2+i) = *(list1+(block)+sortsize+element2);
 					element2++;
 
 				}//end if
 
 				else
 				{
-					*(list2+i) = *(list1+(block*sortsize)+element1);
+					*(list2+i) = *(list1+block+element1);
 					element1++;
 
 				}//end else
@@ -83,7 +83,7 @@ int main()
 
 			while(element1<sortsize)
 			{
-				*(list2+i) = *(list1+(block*sortsize)+element1);
+				*(list2+i) = *(list1+block+element1);
 				element1++;
 				i++;
 
@@ -91,13 +91,13 @@ int main()
 
 			while(element2<sortsize)
 			{
-				*(list2+i) = *(list1+(block*sortsize)+sortsize+element2);
+				*(list2+i) = *(list1+(block)+sortsize+element2);
 				element2++;
 				i++;
 
 			}//end while
 
-			block=block+sortsize;	//move pointer to next block
+			block=block+(2*sortsize);	//move pointer to next block
 
 		}//end while
 
@@ -113,7 +113,7 @@ int main()
 
 	//print output
 	printf("\n");
-	for(i=0; i<actno; i++)
+	for(i=0; i<numno; i++)
 		printf("%d\n",*(list1+i));
 
 	//free memory
