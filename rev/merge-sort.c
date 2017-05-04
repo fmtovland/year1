@@ -51,7 +51,7 @@ int main()
 	sortsize=1;	//size of first block to sort
 
 	//sort the data
-	while(sortsize>=actno)
+	while(sortsize<=actno)
 	{
 		//copy list1 into list 2 while sorting
 		block=0;
@@ -108,7 +108,7 @@ int main()
 
 		//increment loop
 		blockno=blockno/2;
-		sortsize=sortsize/2;
+		sortsize=sortsize*2;
 	}
 
 	//print output
