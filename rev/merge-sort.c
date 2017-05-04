@@ -51,17 +51,17 @@ int main()
 	sortsize=1;	//size of first block to sort
 
 	//sort the data
-	while(sortsize<=actno)
+	while(sortsize<=actno/2)
 	{
 		//copy list1 into list 2 while sorting
 		block=0;
 		i=0;
-		while(i<actno)
+		while(i<actno-1)
 		{
 			element1=element2=0;
 			while(element1<sortsize && element2<sortsize)	//merge 2 blocks together
 			{
-				if( *(list1+(block*sortsize)+element1) < *(list1+(block*sortsize+sortsize)+element2) )
+				if( *(list1+(block*sortsize)+element1) > *(list1+(block*sortsize+sortsize)+element2) )
 				{
 					*(list2+i)=*(list1+(block*sortsize+sortsize)+element2);
 					element2++;
@@ -112,7 +112,7 @@ int main()
 	}
 
 	//print output
-	for(i=0; i<numno; i++)
+	for(i=0; i<actno; i++)
 		printf("%d\n",*(list1+i));
 
 	//free memory
