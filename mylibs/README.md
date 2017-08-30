@@ -2,6 +2,8 @@
 
 a repository for headers that contain algorithms I believe will be useful in the future <br>
 
+lminput came in useful a few times. liblml as it turned out did nothing that couldnt be done better with other librarys made by other people, so when I became bored of it, I stoped developing it. I leave it here only because a few of the programmes I wrote depend on it.
+
 #functions provided
 
 this is an exhaustive list of all functions provided by liblml.h. <br>
